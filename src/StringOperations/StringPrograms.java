@@ -83,6 +83,21 @@ public class StringPrograms {
      */
     public static void printCountOfChar()
     {
+        String strCount = "aaaaabbbbcccc";
+        char countChar[] = strCount.toCharArray();
+        int count = 1;
+        for (int i = 1; i < strCount.length(); i++) {
+            if (countChar[i] == countChar[i - 1]) {
+                count++;
+            } else {
+                System.out.print(countChar[i - 1]);
+                System.out.print(count);
+                count = 1;
+            }
+
+        }
+        System.out.print(countChar[strCount.length() - 1]);
+        System.out.print(count);
     }
     
     /**
