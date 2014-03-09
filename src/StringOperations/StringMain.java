@@ -23,7 +23,22 @@ public class StringMain {
      */
     public static void runTest()
     {
-        StringPrograms.isAnagram("abcdw", "bacd");
+        // ISANAGRAM TEST
+        //StringPrograms.isAnagram("abcdw", "bacd");
+        
+        // PRINT COUNT OF CHARs
+        StringPrograms.printCountOfChar();
+        
+        // ISUNIQUE TEST
+        boolean val = StringPrograms.isUnique("abcdefghijk");
+        if (val) {
+            System.out.println("All Characters are Unique!!");            
+        }
+        else
+        {
+            System.out.println("Characters are not Unique!!");
+        }
+        
     }
 }
     

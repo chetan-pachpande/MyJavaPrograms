@@ -1,3 +1,5 @@
+// <editor-fold defaultstate="collapsed" desc="Your Fold Comment">
+// </editor-fold>
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -9,6 +11,8 @@ package StringOperations;
  * @author Chetan
  */
 public class StringPrograms {
+    
+    // <editor-fold defaultstate="collapsed" desc="1. isAnagram Method">
     
     /**
      * PROGRAM TO CHECK IF TWO STRINGS ARE ANAGRAMS
@@ -60,14 +64,16 @@ public class StringPrograms {
             }
         }     
      }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="2. Replace Space by %20 Method">
     /**
      * PROGRAM TO REPLACE SPACE BY %20
      * 
      */
     public static void replaceSpaceBy() {
     
-         String str = "hello world ";
+        String str = "hello world ";
         char c[] = str.toCharArray();
 
         int spaceCount = 0;
@@ -101,6 +107,8 @@ public class StringPrograms {
             System.out.print(newString[i]);
         }
     }
+    // </editor-fold>
+    
     
     /**
      * PROGRAM TO PRINT POSTFIX FORM
@@ -119,27 +127,39 @@ public class StringPrograms {
         return true;
     }
     
+    // <editor-fold defaultstate="collapsed" desc="Method to print count of consecutive characters">
     /**
      * PROGRAM TO COUNT CHARACTERS IN STRING
      */
     public static void printCountOfChar()
     {
         String strCount = "aaaaabbbbcccc";
+        System.out.println("Input String : " + strCount);
+        
         char countChar[] = strCount.toCharArray();
         int count = 1;
-        for (int i = 1; i < strCount.length(); i++) {
-            if (countChar[i] == countChar[i - 1]) {
+        for (int i = 1; i < strCount.length(); i++) 
+        {            
+            if (countChar[i] == countChar[i - 1]) 
+            {
                 count++;
-            } else {
-                System.out.print(countChar[i - 1]);
+            } 
+            else 
+            {
+                System.out.print("Character - ");
+                System.out.print(countChar[i - 1] + " :");
                 System.out.print(count);
+                System.out.println();
                 count = 1;
             }
 
         }
-        System.out.print(countChar[strCount.length() - 1]);
+        System.out.print("Character - ");
+        System.out.print(countChar[strCount.length() - 1] + " :");
         System.out.print(count);
+        System.out.println();
     }
+    // </editor-fold>
     
     /**
      * PROGRAM TO CONVERT STRING TO INTEGER : ATOI function
@@ -187,7 +207,34 @@ public class StringPrograms {
      * @param str
      * @return 
      */
-    public static boolean isUniqueWithoutArray(String str) { return true;}
+    public static boolean isUniqueWithoutArray(String str) 
+    { 
+        
+        return true;
     
+    }
+    
+    /**
+     * 
+     * @param str
+     * @return 
+     */
+    public static boolean isUnique(String str)
+    {
+        boolean[] char_set = new boolean[256];
+        
+        for (int i = 0; i < str.length(); i++) {
+            
+            if(char_set[str.charAt(i)] == false)
+            {
+                char_set[str.charAt(i)] = true;
+            }
+            else
+            {
+                return false;
+            }            
+        }
+        return true;
+    }
     
 }
