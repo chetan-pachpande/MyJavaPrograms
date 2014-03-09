@@ -26,6 +26,39 @@ public class StringPrograms {
      */
     public static void replaceSpaceBy() {
     
+         String str = "hello world ";
+        char c[] = str.toCharArray();
+
+        int spaceCount = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (c[i] == ' ') {
+                spaceCount++;
+            }
+        }
+        
+        int newLength = c.length + spaceCount * 2;
+        char newString[] = new char[newLength];
+        
+        for (int i = c.length - 1; i >= 0; i--) {
+            
+            if (c[i] == ' ') 
+            {
+                newString[newLength - 1] = '0';
+                newString[newLength - 2] = '2';
+                newString[newLength - 3] = '%';
+                newLength -= 3;
+            } 
+            else {
+                newString[newLength - 1] = c[i];
+                newLength -= 1;
+            }
+        }
+        
+        System.out.print("Replaced string is :");
+        for (int i = 0; i < newString.length; i++) {
+            System.out.print(newString[i]);
+        }
     }
     
     /**
@@ -50,6 +83,21 @@ public class StringPrograms {
      */
     public static void printCountOfChar()
     {
+        String strCount = "aaaaabbbbcccc";
+        char countChar[] = strCount.toCharArray();
+        int count = 1;
+        for (int i = 1; i < strCount.length(); i++) {
+            if (countChar[i] == countChar[i - 1]) {
+                count++;
+            } else {
+                System.out.print(countChar[i - 1]);
+                System.out.print(count);
+                count = 1;
+            }
+
+        }
+        System.out.print(countChar[strCount.length() - 1]);
+        System.out.print(count);
     }
     
     /**
