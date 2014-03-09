@@ -16,9 +16,50 @@ public class StringPrograms {
      * @param s2 
      */
     public static void isAnagram(String s1, String s2)
-    {
-        System.out.println("in IsAnagram..");
-    }
+    {       
+        int hit[] = new int[256];        
+        int i = 0;
+        
+        if (s1.length() != s2.length())
+        {
+            System.out.println("Lenghts are not same, Not Anagram of each other...");
+        }
+        else
+        {
+            for (i = 0; i < s1.length() && i < s2.length(); i++)
+            {
+                hit[s1.charAt(i)]++;
+                //System.out.println("s1.charAt(i) : " +s1.charAt(i)+ " hit[s1.charAt(i)] : " + hit[s1.charAt(i)] );
+                hit[s2.charAt(i)]--;
+                //System.out.println("s2.charAt(i) : " +s2.charAt(i)+ " hit[s2.charAt(i)] : " + hit[s2.charAt(i)] );
+            } 
+            
+            boolean flag = false;
+            
+            for (int j = 0; j < s1.length(); j++) 
+            {
+                if(hit[s1.charAt(j)] != 0)
+                {
+                    flag = false;
+                    break;
+                }
+                else
+                {
+                    //System.out.println("j : " + j );
+                    //System.out.println("s1.charAt(j) : " +s1.charAt(j)+ " hit[s1.charAt(j)] : " + hit[s1.charAt(j)] ); 
+                    flag = true;
+                    continue;
+                }                
+            }            
+            if (flag) {
+                    System.out.println("Strings are Anagram of each other...");
+                }
+            else
+            {
+               System.out.println("Strings are not Anagram of each other..."); 
+            }
+        }     
+     }
     
     /**
      * PROGRAM TO REPLACE SPACE BY %20

@@ -23,7 +23,7 @@ public class StringMain {
      */
     public static void runTest()
     {
-        StringPrograms.isAnagram(null, null);
+        StringPrograms.isAnagram("abcdw", "bacd");
     }
 }
     
