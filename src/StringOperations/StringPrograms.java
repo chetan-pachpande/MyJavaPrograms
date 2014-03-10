@@ -1,3 +1,5 @@
+// <editor-fold defaultstate="collapsed" desc="Your Fold Comment">
+// </editor-fold>
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,23 +12,68 @@ package StringOperations;
  */
 public class StringPrograms {
     
+    // <editor-fold defaultstate="collapsed" desc="1. isAnagram Method">
+    
     /**
      * PROGRAM TO CHECK IF TWO STRINGS ARE ANAGRAMS
      * @param s1
      * @param s2 
      */
     public static void isAnagram(String s1, String s2)
-    {
-        System.out.println("in IsAnagram..");
-    }
+    {       
+        int hit[] = new int[256];        
+        int i = 0;
+        
+        if (s1.length() != s2.length())
+        {
+            System.out.println("Lenghts are not same, Not Anagram of each other...");
+        }
+        else
+        {
+            for (i = 0; i < s1.length() && i < s2.length(); i++)
+            {
+                hit[s1.charAt(i)]++;
+                //System.out.println("s1.charAt(i) : " +s1.charAt(i)+ " hit[s1.charAt(i)] : " + hit[s1.charAt(i)] );
+                hit[s2.charAt(i)]--;
+                //System.out.println("s2.charAt(i) : " +s2.charAt(i)+ " hit[s2.charAt(i)] : " + hit[s2.charAt(i)] );
+            } 
+            
+            boolean flag = false;
+            
+            for (int j = 0; j < s1.length(); j++) 
+            {
+                if(hit[s1.charAt(j)] != 0)
+                {
+                    flag = false;
+                    break;
+                }
+                else
+                {
+                    //System.out.println("j : " + j );
+                    //System.out.println("s1.charAt(j) : " +s1.charAt(j)+ " hit[s1.charAt(j)] : " + hit[s1.charAt(j)] ); 
+                    flag = true;
+                    continue;
+                }                
+            }            
+            if (flag) {
+                    System.out.println("Strings are Anagram of each other...");
+                }
+            else
+            {
+               System.out.println("Strings are not Anagram of each other..."); 
+            }
+        }     
+     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="2. Replace Space by %20 Method">
     /**
      * PROGRAM TO REPLACE SPACE BY %20
      * 
      */
     public static void replaceSpaceBy() {
     
-         String str = "hello world ";
+        String str = "hello world ";
         char c[] = str.toCharArray();
 
         int spaceCount = 0;
@@ -60,7 +107,8 @@ public class StringPrograms {
             System.out.print(newString[i]);
         }
     }
-    
+    // </editor-fold>
+        
     /**
      * PROGRAM TO PRINT POSTFIX FORM
      */
@@ -69,44 +117,124 @@ public class StringPrograms {
         
     }
     
+    // <editor-fold defaultstate="collapsed" desc="4. Method to check if string is Palindrome or not">
     /**
      * PROGRAM TO CHECK IF STRING IS PALINDROME OR NOT
      * @return : true of success
      */
-    public static boolean isPalindrome()
+    public static boolean isPalindrome(String inputString)
     {
-        return true;
+        char[] inputCharArray = inputString.toCharArray();
+        
+        int start,end;
+        boolean result = false;
+        start = 0;
+        end = inputString.length() - 1;
+        
+        while(start <= end)
+        {
+            // Perform Action
+            if (inputCharArray[start] == inputCharArray[end]) {
+                result = true;
+            }
+            else
+            {
+                break;
+            }
+            start++;
+            end--;
+        }
+        
+        if (result) {
+            return true;    
+        }
+        return false;
     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="5. Method to print count of consecutive characters">
     /**
      * PROGRAM TO COUNT CHARACTERS IN STRING
      */
     public static void printCountOfChar()
     {
         String strCount = "aaaaabbbbcccc";
+        System.out.println("Input String : " + strCount);
+        
         char countChar[] = strCount.toCharArray();
         int count = 1;
-        for (int i = 1; i < strCount.length(); i++) {
-            if (countChar[i] == countChar[i - 1]) {
+        for (int i = 1; i < strCount.length(); i++) 
+        {            
+            if (countChar[i] == countChar[i - 1]) 
+            {
                 count++;
-            } else {
-                System.out.print(countChar[i - 1]);
+            } 
+            else 
+            {
+                System.out.print("Character - ");
+                System.out.print(countChar[i - 1] + " :");
                 System.out.print(count);
+                System.out.println();
                 count = 1;
             }
 
         }
-        System.out.print(countChar[strCount.length() - 1]);
+        System.out.print("Character - ");
+        System.out.print(countChar[strCount.length() - 1] + " :");
         System.out.print(count);
+        System.out.println();
     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="6. Method to Convert String to integer (AtoI)">
     /**
      * PROGRAM TO CONVERT STRING TO INTEGER : ATOI function
      */
-    public static void convertStringToInt() 
+    public static void convertStringToInt(String inputString) 
     {
+        inputString = "-90";
+        
+        if(inputString == null || inputString.length() == 0)
+        {
+            System.out.println("String is empty...");
+        }
+        
+        int result = 0;
+        int value = 0;
+        int negative = 0;
+        
+        if(inputString.charAt(0) == '-')
+        {
+            negative = 1;
+        }
+        
+        for (int i = 0; i < inputString.length(); i++) 
+        {
+            if(negative == 1 && i == 0)
+            {
+                continue;
+            }
+            else
+            {
+                value = inputString.charAt(i) - '0';
+                if (value < 0 || value > 9) 
+                {
+                    System.out.println("Invalid number!!!");
+                    break;
+                }
+            }
+            
+            result = result*10 + value; 
+        }
+        
+        if (negative == 1) {
+            result = result * -1;
+        }
+        
+        System.out.println("The converted string is: " + result);
         
     }
+    // </editor-fold>
     
     /**
      * PROGRAM TO REMOVE CHARACTER FROM STRING
@@ -127,7 +255,10 @@ public class StringPrograms {
     /**
      * 
      */
-    public static void reversesString(){}
+    public static void reversesString()
+    {
+        
+    }
     
     /**
      * 
@@ -141,12 +272,49 @@ public class StringPrograms {
      */
     public static void removeDuplicatesEff(char[] str){}
     
+    // <editor-fold defaultstate="collapsed" desc="IsUnique Function (without using addtional storage)">
     /**
      * 
      * @param str
      * @return 
      */
-    public static boolean isUniqueWithoutArray(String str) { return true;}
+    public static boolean isUniqueWithoutArray(String str) 
+    { 
+        int checker = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i) - 'a';
+            if ((checker & (1 << val)) > 0) {
+                return false;
+            }
+            checker |= (1 << val);
+
+        }
+        return true;       
+    }
+     // </editor-fold>
     
-    
+    // <editor-fold defaultstate="collapsed" desc="IsUnique Function">
+    /**
+     * 
+     * @param str
+     * @return 
+     */
+    public static boolean isUnique(String str)
+    {
+        boolean[] char_set = new boolean[256];
+        
+        for (int i = 0; i < str.length(); i++) {
+            
+            if(char_set[str.charAt(i)] == false)
+            {
+                char_set[str.charAt(i)] = true;
+            }
+            else
+            {
+                return false;
+            }            
+        }
+        return true;
+    }
+    // </editor-fold>
 }
