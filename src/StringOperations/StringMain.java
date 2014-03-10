@@ -23,6 +23,7 @@ public class StringMain {
      */
     public static void runTest()
     {
+        boolean val;
         // ISANAGRAM TEST
         //StringPrograms.isAnagram("abcdw", "bacd");
         
@@ -30,15 +31,25 @@ public class StringMain {
         StringPrograms.printCountOfChar();
         
         // ISUNIQUE TEST
-        boolean val = StringPrograms.isUnique("abcdefghijk");
+        val = StringPrograms.isUnique("abcdefghijk");
         if (val) {
-            System.out.println("All Characters are Unique!!");            
-        }
-        else
-        {
+            System.out.println("All Characters are Unique!!");
+        }            
+        else {
             System.out.println("Characters are not Unique!!");
         }
         
+        // STRING TO INTEGERT TEST
+        StringPrograms.convertStringToInt(null);
+        
+        // PALINDROME TEST
+        val = StringPrograms.isPalindrome("abbaabba");
+        if (val) {
+            System.out.println("Input String is palindrome!!");
+        }            
+        else {
+            System.out.println("Input String is not palindrome!!");
+        }
     }
 }
     

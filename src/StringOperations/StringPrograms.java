@@ -108,8 +108,7 @@ public class StringPrograms {
         }
     }
     // </editor-fold>
-    
-    
+        
     /**
      * PROGRAM TO PRINT POSTFIX FORM
      */
@@ -118,16 +117,42 @@ public class StringPrograms {
         
     }
     
+    // <editor-fold defaultstate="collapsed" desc="4. Method to check if string is Palindrome or not">
     /**
      * PROGRAM TO CHECK IF STRING IS PALINDROME OR NOT
      * @return : true of success
      */
-    public static boolean isPalindrome()
+    public static boolean isPalindrome(String inputString)
     {
-        return true;
+        char[] inputCharArray = inputString.toCharArray();
+        
+        int start,end;
+        boolean result = false;
+        start = 0;
+        end = inputString.length() - 1;
+        
+        while(start <= end)
+        {
+            // Perform Action
+            if (inputCharArray[start] == inputCharArray[end]) {
+                result = true;
+            }
+            else
+            {
+                break;
+            }
+            start++;
+            end--;
+        }
+        
+        if (result) {
+            return true;    
+        }
+        return false;
     }
+    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="Method to print count of consecutive characters">
+    // <editor-fold defaultstate="collapsed" desc="5. Method to print count of consecutive characters">
     /**
      * PROGRAM TO COUNT CHARACTERS IN STRING
      */
@@ -161,13 +186,55 @@ public class StringPrograms {
     }
     // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="6. Method to Convert String to integer (AtoI)">
     /**
      * PROGRAM TO CONVERT STRING TO INTEGER : ATOI function
      */
-    public static void convertStringToInt() 
+    public static void convertStringToInt(String inputString) 
     {
+        inputString = "-90";
+        
+        if(inputString == null || inputString.length() == 0)
+        {
+            System.out.println("String is empty...");
+        }
+        
+        int result = 0;
+        int value = 0;
+        int negative = 0;
+        
+        if(inputString.charAt(0) == '-')
+        {
+            negative = 1;
+        }
+        
+        for (int i = 0; i < inputString.length(); i++) 
+        {
+            if(negative == 1 && i == 0)
+            {
+                continue;
+            }
+            else
+            {
+                value = inputString.charAt(i) - '0';
+                if (value < 0 || value > 9) 
+                {
+                    System.out.println("Invalid number!!!");
+                    break;
+                }
+            }
+            
+            result = result*10 + value; 
+        }
+        
+        if (negative == 1) {
+            result = result * -1;
+        }
+        
+        System.out.println("The converted string is: " + result);
         
     }
+    // </editor-fold>
     
     /**
      * PROGRAM TO REMOVE CHARACTER FROM STRING
@@ -188,7 +255,10 @@ public class StringPrograms {
     /**
      * 
      */
-    public static void reversesString(){}
+    public static void reversesString()
+    {
+        
+    }
     
     /**
      * 
@@ -202,6 +272,7 @@ public class StringPrograms {
      */
     public static void removeDuplicatesEff(char[] str){}
     
+    // <editor-fold defaultstate="collapsed" desc="IsUnique Function (without using addtional storage)">
     /**
      * 
      * @param str
@@ -209,11 +280,20 @@ public class StringPrograms {
      */
     public static boolean isUniqueWithoutArray(String str) 
     { 
-        
-        return true;
-    
+        int checker = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i) - 'a';
+            if ((checker & (1 << val)) > 0) {
+                return false;
+            }
+            checker |= (1 << val);
+
+        }
+        return true;       
     }
+     // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="IsUnique Function">
     /**
      * 
      * @param str
@@ -236,5 +316,5 @@ public class StringPrograms {
         }
         return true;
     }
-    
+    // </editor-fold>
 }
