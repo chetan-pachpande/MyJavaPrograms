@@ -50,6 +50,15 @@ public class StringMain {
         else {
             System.out.println("Input String is not palindrome!!");
         }
+        
+        //POSTFIX TEST
+        StringPrograms.postfix("43*2+");
+        
+        //TEST SWAP        
+        StringPrograms.swap(4, 5);
+        
+        //TEST REMOVE CHARACTER METHOD
+        StringPrograms.removeCharacters();
     }
 }
     
