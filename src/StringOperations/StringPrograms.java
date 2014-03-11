@@ -6,6 +6,8 @@
  */
 package StringOperations;
 
+import java.util.Stack;
+
 /**
  *
  * @author Chetan
@@ -108,14 +110,61 @@ public class StringPrograms {
         }
     }
     // </editor-fold>
-        
+
+    // <editor-fold defaultstate="collapsed" desc="3. Method to process Postfix expression">
     /**
      * PROGRAM TO PRINT POSTFIX FORM
      */
-    public static void postfix()
+    public static void postfix(String postfixInput)
     {
+        int result = 0;
+        int val = 0;
+        int var1 = 0;
+        int var2 = 0;
+        char ch = ' ';
         
+        Stack s = new Stack();
+        
+        for (int i = 0; i < postfixInput.length(); i++) {
+            ch = postfixInput.charAt(i);
+            val = ch - '0';
+            
+            if(val >=0 && val <9)
+            {
+                s.push(val);
+            }
+            else
+            {
+                var1 = (int)s.pop();
+                var2 = (int)s.pop();
+                
+                switch(ch)
+                {
+                    case '+':
+                        result = var1 + var2;
+                        break;
+                    case '-':
+                        result = var1 - var2;
+                        break;
+                    case '/':
+                        result = var1 / var2;
+                        break;
+                    case '*':
+                        result = var1 * var2;
+                        break;
+                    default:
+                        result = 0;
+                        System.out.println("Invalid characterr encountered!!");
+                        break;
+                }
+                s.push(result);
+            }
+        }
+        result = (int)s.pop();
+        System.out.println("The result of postfix " + postfixInput + " is: " + result);
+            
     }
+    // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="4. Method to check if string is Palindrome or not">
     /**
@@ -236,21 +285,65 @@ public class StringPrograms {
     }
     // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="7. Method to Remove Characters from String">    
     /**
      * PROGRAM TO REMOVE CHARACTER FROM STRING
      */
     public static void removeCharacters()
     {
-      
+      String str2 = "Amazon Development";
+        String str1 = "aze";
+        StringBuilder sb = new StringBuilder(str2);        
+        int count = 0;
+        boolean hit[] = new boolean[256];
+        
+        for (int i = 0; i < str1.length(); i++) {
+            hit[str1.charAt(i)] = true;
+        }
+
+        for (int j = 0; j < str2.length(); j++) {
+            if (hit[str2.charAt(j)]) {                
+                sb.deleteCharAt(j-count);               
+                count++;
+            } 
+        }        
+        str2 = sb.toString();
+        System.out.println("String: " + str2);
+        System.out.println("No of characters replaced are :" + count);
     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="8. Method to Swap two integers">  
     /**
      * PROGRAS TO SWAP 
      * @param c
      * @param a
      * @param b 
      */
-    public static void swap(char c[], int a, int b){}
+    public static void swap(int a, int b)
+    {
+        System.out.println("Before Swapping, a: " + a + " b: " + b);
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("After Swapping, a: " + a + " b: " + b);
+    }
+    // </editor-fold>  
+    
+    // <editor-fold defaultstate="collapsed" desc="9. Method to Swap chars">
+    /**
+     * 
+     * @param c
+     * @param a
+     * @param b 
+     */
+    public static void swap(char c[], int a, int b) {
+        char temp = c[a];
+        c[a] = c[b];
+        c[b] = temp;
+    }
+    // </editor-fold>  
+    
     
     /**
      * 
