@@ -399,7 +399,6 @@ public class StringPrograms {
 
 // </editor-fold>
     
-    
     // <editor-fold defaultstate="collapsed" desc="11. Method to remove duplicates from character array ">
     /**
      * Method to Remove duplicates
@@ -440,13 +439,18 @@ public class StringPrograms {
 
 // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="12. Method to remove duplicates from character array - Efficient">   
     /**
      * 
      * @param str 
      */
-    public static void removeDuplicatesEff(char[] str){}
+    public static void removeDuplicatesEff(char[] str)
+    {
+        
+    }
+     // </editor-fold>    
     
-    // <editor-fold defaultstate="collapsed" desc="IsUnique Function (without using addtional storage)">
+    // <editor-fold defaultstate="collapsed" desc="13. IsUnique Function (without using addtional storage)">
     /**
      * 
      * @param str
@@ -467,7 +471,7 @@ public class StringPrograms {
     }
      // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="IsUnique Function">
+    // <editor-fold defaultstate="collapsed" desc="14. IsUnique Function">
     /**
      * 
      * @param str

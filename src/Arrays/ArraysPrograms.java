@@ -20,7 +20,7 @@ public class ArraysPrograms {
      */
     public static int binarySearch(int a[], int key, int start, int end) 
     {
-        System.out.println("In Binary Search...");
+        System.out.println("In Binary Search...");        
         return 0;
     }
     
