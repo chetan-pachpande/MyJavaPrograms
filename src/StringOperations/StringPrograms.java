@@ -343,21 +343,102 @@ public class StringPrograms {
         c[b] = temp;
     }
     // </editor-fold>  
-    
-    
+   
+    // <editor-fold defaultstate="collapsed" desc="10. Method To reverse a string ">
+    //http://wiki.netbeans.org/SurroundWithCodeFolding
     /**
-     * 
+     *
+     * @param inputString
      */
-    public static void reversesString()
-    {
+    public static void reversesString(String inputString) {
+        char[] reverseStr = new char[inputString.length()];
         
+        reverseStr = inputString.toCharArray();
+        
+        for (int i = 0; i < inputString.length() / 2; i++) {            
+            swap(reverseStr, i, (inputString.length() - 1) - i);
+        }
+        
+        System.out.print("Reversed String after first loop: ");
+        System.out.print(reverseStr);
+        System.out.println();
+        
+        int prev = 0;
+        int temp = 0;
+        
+        for (int i = 0; i < inputString.length(); i++) {
+            if (reverseStr[i] == ' ') {
+                if (i == 0) {
+                    temp = 0;
+                } else {
+                    temp = i - 1;
+                }
+                
+                while (prev < temp) {
+                    swap(reverseStr, prev, temp);
+                    prev++;
+                    temp--;                    
+                }
+                prev = i + 1;
+            }
+        }
+        
+        temp = reverseStr.length - 1;
+        
+        while (prev < temp) {
+            swap(reverseStr, prev, temp);
+            prev++;
+            temp--;            
+        }
+
+        // After full reversal
+        System.out.print("Reversed String after second loop: ");
+        System.out.print(reverseStr);
+        System.out.println();
     }
+
+// </editor-fold>
     
+    
+    // <editor-fold defaultstate="collapsed" desc="11. Method to remove duplicates from character array ">
     /**
-     * 
-     * @param str 
+     * Method to Remove duplicates
+     *
+     * @param str
      */
-    public static void removeDuplicates(char[] str){}
+    public static void removeDuplicates(char[] str) {
+        if (str == null) {
+            return;
+        }
+        int length = str.length;
+        if (length < 2) {
+            return;
+        }
+        
+        int tail = 1;
+
+        //outer loop
+        for (int i = 0; i < str.length; i++) {
+            int j;
+            for (j = 0; j < tail; j++) {
+                if (str[i] == str[j]) {
+                    break;
+                }
+            }
+            
+            if (j == tail) {
+                str[tail] = str[i];
+                ++tail;
+            }
+            
+        }
+        
+        str[tail] = 0;
+        String result = String.valueOf(str);
+        System.out.println("Updated string is: " + result);
+    }
+
+// </editor-fold>
     
     /**
      * 
