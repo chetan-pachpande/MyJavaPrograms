@@ -59,6 +59,13 @@ public class StringMain {
         
         //TEST REMOVE CHARACTER METHOD
         StringPrograms.removeCharacters();
+        
+        //TEST REVERSE STRING
+        StringPrograms.reversesString("Hi This is Chetan");
+        
+        //TEST REMOVE DUPLICATES
+        char[] chararray = {'a', 'a', 'a', 'b', 'a'};
+        StringPrograms.removeDuplicates(chararray);
     }
 }
     
