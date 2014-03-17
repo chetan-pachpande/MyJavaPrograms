@@ -66,6 +66,8 @@ public class StringMain {
         //TEST REMOVE DUPLICATES
         char[] chararray = {'a', 'a', 'a', 'b', 'a'};
         StringPrograms.removeDuplicates(chararray);
+        char[] chararray1 = {'a', 'a', 'a', 'b', 'b','c'};
+        StringPrograms.removeDuplicatesEff(chararray1);
     }
 }
     
