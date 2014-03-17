@@ -398,7 +398,11 @@ public class StringPrograms {
     }
 
 // </editor-fold>
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> c1b2678463d54d72e5ed3ef815c881f0bb57ccde
     // <editor-fold defaultstate="collapsed" desc="11. Method to remove duplicates from character array ">
     /**
      * Method to Remove duplicates
@@ -439,13 +443,18 @@ public class StringPrograms {
 
 // </editor-fold>
     
+<<<<<<< HEAD
     // <editor-fold defaultstate="collapsed" desc="12. Method to remove duplicates from character array">
+=======
+    // <editor-fold defaultstate="collapsed" desc="12. Method to remove duplicates from character array - Efficient">   
+>>>>>>> c1b2678463d54d72e5ed3ef815c881f0bb57ccde
     /**
      * Efficient Method to remove duplicates from character array
      * @param str 
      */
     public static void removeDuplicatesEff(char[] str)
     {
+<<<<<<< HEAD
         //Step 1:
         if (str == null) {
             return;
@@ -480,6 +489,11 @@ public class StringPrograms {
         System.out.println("Updated string is: " + result);
     }
 // </editor-fold>
+=======
+        
+    }
+     // </editor-fold>    
+>>>>>>> c1b2678463d54d72e5ed3ef815c881f0bb57ccde
     
     // <editor-fold defaultstate="collapsed" desc="13. IsUnique Function (without using addtional storage)">
     /**
