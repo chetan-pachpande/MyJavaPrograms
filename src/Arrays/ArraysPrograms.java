@@ -23,7 +23,7 @@ public class ArraysPrograms {
     {
         System.out.println("In Binary Search...");  
         
-        //Step 1:
+        //Step 1: if key is start element 
         if (a[start] == key) 
         {
             return start;
@@ -36,24 +36,22 @@ public class ArraysPrograms {
             return -1;
         }
         
-        //Step 4:
+        //Step 4: if key is mid element
         if(a[mid] == key)
         {
             return mid;
         }
-        //Step 5:
+        //Step 5: if key is less that mid
         else if(key < a[mid])
         {
             return binarySearch(a,key,start,mid-1);
         }
-        //Step 6:
+        //Step 6: if key is greater that mid
         else
         {
             return binarySearch(a,key,mid+1,end);
         }
-        //Step 7:
-        //return 0;
-        
+               
     }
     // </editor-fold>
     
@@ -65,21 +63,24 @@ public class ArraysPrograms {
      */
     public static boolean isSumOfSubset(int set[], int n, int sum)
     {
+        //Step 1: if sum is 0 then return true
         if (sum == 0) 
         {
             return true;            
         }
+        //Step 2: if number of elements becomes 0 and sum is non zero return false
         if(n == 0 && sum!=0)
         {
             return false;
         }
-        
+        //Step 3: if last element is greater than sum ignore it
         if(set[n-1] > sum)
         {
             return isSumOfSubset(set,n-1,sum);
         }
         
-        /* else, check if sum can be obtained by any of the following
+        /* Step4: 
+           else, check if sum can be obtained by any of the following
            (a) including the last element
            (b) excluding the last element  
         */

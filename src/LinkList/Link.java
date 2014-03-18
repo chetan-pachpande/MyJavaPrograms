@@ -10,13 +10,13 @@ package LinkList;
  */
 public class Link {
     
+    // DATA MEMBERS
     int iData;
     double dData;
     Link next;
-
         
     //---------------------------------------
-    
+    // CONSTRUCTOR
     public Link(int iD, double dD)
     {
         iData = iD;
@@ -25,7 +25,7 @@ public class Link {
     }
            
     //--------------------------------------
-    
+    // DISPLAY LINK
     public void displayLink()
     {
         System.out.println("{ " + iData + " ," + dData + "}");
