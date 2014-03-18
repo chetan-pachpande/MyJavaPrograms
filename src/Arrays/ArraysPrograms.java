@@ -10,6 +10,7 @@ package Arrays;
  */
 public class ArraysPrograms {
  
+    // <editor-fold defaultstate="collapsed" desc="1. Binaray Search Implementation">
     /**
      * 
      * @param a
@@ -20,14 +21,97 @@ public class ArraysPrograms {
      */
     public static int binarySearch(int a[], int key, int start, int end) 
     {
-        System.out.println("In Binary Search...");        
-        return 0;
+        System.out.println("In Binary Search...");  
+        
+        //Step 1:
+        if (a[start] == key) 
+        {
+            return start;
+        }
+        //Step 2: Calculate mid
+        int mid = (start + end) /2;
+        //Step 3: if Start reaches End
+        if(start == end)
+        {
+            return -1;
+        }
+        
+        //Step 4:
+        if(a[mid] == key)
+        {
+            return mid;
+        }
+        //Step 5:
+        else if(key < a[mid])
+        {
+            return binarySearch(a,key,start,mid-1);
+        }
+        //Step 6:
+        else
+        {
+            return binarySearch(a,key,mid+1,end);
+        }
+        //Step 7:
+        //return 0;
+        
     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="2. Method to check if subset for given sum present or not">
     /**
-     * 
+     * Method to find in subset for given sum is present or not
+     * http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
+     * TODO: Implement using dynamic programming
      */
-    public static void sumOfSubset(){}
+    public static boolean isSumOfSubset(int set[], int n, int sum)
+    {
+        if (sum == 0) 
+        {
+            return true;            
+        }
+        if(n == 0 && sum!=0)
+        {
+            return false;
+        }
+        
+        if(set[n-1] > sum)
+        {
+            return isSumOfSubset(set,n-1,sum);
+        }
+        
+        /* else, check if sum can be obtained by any of the following
+           (a) including the last element
+           (b) excluding the last element  
+        */
+        return isSumOfSubset(set, n-1, sum) || isSumOfSubset(set, n-1, sum-set[n-1]);
+        
+    }
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="3. Method to find subsets with given sum">
+    /**
+     * Method To find subsets which equals up with given sum
+     * require sorted array
+     */
+    public static void sumOfSubset() {
+        int a[] = {1, 2, 3, 4, 5, 6, 7};
+        int i = 0;
+        int j = a.length - 1;
+        int sum = 9;
+        while (i < j) {
+            if (a[i] + a[j] == sum) {
+                System.out.print(a[i] + " " + a[j]);
+                System.out.println();
+                i++;
+                j--;
+            } else if (a[i] + a[j] > sum) {
+                j--;
+            } else {
+                i++;
+            }
+        }
+    }
+    // </editor-fold>
     
     /**
      * 
